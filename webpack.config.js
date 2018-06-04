@@ -52,10 +52,12 @@ module.exports = {
     },
     plugins: [new CopyWebpackPlugin([
         {from: "node_modules/react/umd/react.development.js", to: "react.development.js"},
-        {from: "node_modules/react-dom/umd/react-dom.development.js", to: "react-dom.development.js"}
+        {from: "node_modules/react-dom/umd/react-dom.development.js", to: "react-dom.development.js"},
+        {from: "node_modules/mathjax/MathJax.js", to: "MathJax.js"},
     ])],
     externals: {
         "react": "React",
-        "react-dom": "ReactDOM"
+        "react-dom": "ReactDOM",
+        "MathJax": "MathJax"
     }
 };

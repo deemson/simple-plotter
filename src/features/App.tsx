@@ -1,5 +1,5 @@
 import * as React from "react";
-import FormulaEditor from "../containers/FormulaEditor";
+import FormulaEditor from "./formula-editor/FormulaEditor";
 
 export class App extends React.Component<{}, {}> {
     render() {

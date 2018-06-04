@@ -2,15 +2,15 @@ import "bootstrap";
 import "./index.html";
 import "./styles.scss";
 
+import "mathjax";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as ReactRedux from "react-redux";
-import * as Redux from "redux";
 
-import {App} from "./components/App";
-import rootReducer from "./reducers";
+MathJax.Hub.Config({});
 
-const store = Redux.createStore(rootReducer);
+import {App} from "./features/App";
+import store from "./store";
 
 ReactDOM.render(
     <ReactRedux.Provider store={store}>
