@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactRedux from "react-redux";
 
+import {RootState} from "../../store";
 import {changeFormula} from "./actions";
 
 export interface Props {
@@ -37,9 +38,9 @@ export class FormulaEditor extends React.Component<Props, State> {
     }
 }
 
-const mapStateToProps = (state: State) => {
+const mapStateToProps = (state: RootState) => {
     return {
-        formula: state.formula,
+        formula: state.formulaEditor.formula,
     };
 };
 
