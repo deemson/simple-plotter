@@ -4,7 +4,8 @@
   "jsRules": {},
   "rules": {
     "interface-name": [true, "never-prefix"],
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }
