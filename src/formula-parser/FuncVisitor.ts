@@ -1,9 +1,6 @@
 import {tokenMatcher} from "chevrotain";
-import FormulaParser from "./FormulaParser";
+import BaseCstVisitor from "./BaseCstVisitor";
 import * as Tokens from "./tokens";
-
-const formulaParser = new FormulaParser([]);
-const BaseCstVisitor = formulaParser.getBaseCstVisitorConstructor();
 
 enum AdditionOperator {
     Plus,

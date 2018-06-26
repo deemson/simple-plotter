@@ -1,6 +1,6 @@
 import Formula from "./Formula";
 
-describe("Formula", () => {
+describe("calculate(x)", () => {
     it("should calculate scalar plus/minus", () => {
         const formula = new Formula();
         formula.consume("150 + 25 - 7");
@@ -32,5 +32,14 @@ describe("Formula", () => {
         expect(formula.errors).toEqual([]);
         expect(formula.calculate(2)).toBe(2 * 2 + 3 * 2 + 5);
         expect(formula.calculate(5)).toBe(5 * 5 + 3 * 5 + 5);
+    });
+});
+
+describe("render()", () => {
+    it("should render basic formula", () => {
+        const formula = new Formula();
+        formula.consume("(x + 3) * 3 + 5");
+        expect(formula.errors).toEqual([]);
+        expect(formula.render()).toBe("(x+3)*3+5");
     });
 });

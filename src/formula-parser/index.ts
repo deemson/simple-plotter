@@ -1,9 +1,11 @@
 import FormulaParser from "./FormulaParser";
-import FormulaVisitor from "./FormulaVisitor";
+import FuncVisitor from "./FuncVisitor";
+import MathJaxVisitor from "./MathJaxVisitor";
 import * as Tokens from "./tokens";
 
 export {
+    MathJaxVisitor,
     Tokens,
     FormulaParser,
-    FormulaVisitor,
+    FuncVisitor,
 };
