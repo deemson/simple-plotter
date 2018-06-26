@@ -22,8 +22,18 @@ export default class FormulaParser extends Parser {
         });
     });
 
+    parenthesisExpression = this.RULE("parenthesisExpression", () => {
+        this.CONSUME(Tokens.LParen);
+        this.SUBRULE(this.expression);
+        this.CONSUME(Tokens.RParen);
+    });
+
     atomicExpression = this.RULE("atomicExpression", () => {
-        this.CONSUME(Tokens.NumberLiteral);
+        this.OR([
+            {ALT: () => this.SUBRULE(this.parenthesisExpression)},
+            {ALT: () => this.CONSUME(Tokens.NumberLiteral)},
+            {ALT: () => this.CONSUME(Tokens.X)},
+        ]);
     });
 
     constructor(input: IToken[]) {

@@ -19,4 +19,18 @@ describe("Formula", () => {
         expect(formula.errors).toEqual([]);
         expect(formula.calculate()).toBe((11 + 7) * 2);
     });
+    it("should calculate simple formula", () => {
+        const formula = new Formula();
+        formula.consume("2 * x + 3");
+        expect(formula.errors).toEqual([]);
+        expect(formula.calculate(2)).toBe(2 * 2 + 3);
+        expect(formula.calculate(3)).toBe(2 * 3 + 3);
+    });
+    it("should calculate quadratic formula", () => {
+        const formula = new Formula();
+        formula.consume("x * x + 3 * x + 5");
+        expect(formula.errors).toEqual([]);
+        expect(formula.calculate(2)).toBe(2 * 2 + 3 * 2 + 5);
+        expect(formula.calculate(5)).toBe(5 * 5 + 3 * 5 + 5);
+    });
 });

@@ -8,6 +8,7 @@ export default class Formula {
     private parser: FormulaParser;
     private cst: any;
     private visitor: FormulaVisitor;
+    private func: (x: number) => number;
 
     constructor() {
         this.lexer = new Lexer(Tokens.allTokens);
@@ -18,10 +19,11 @@ export default class Formula {
     consume(text: string) {
         this.tokenize(text);
         this.parse();
+        this.func = this.visitor.expression(this.cst);
     }
 
     calculate(x?: number): number {
-        return this.visitor.expression(this.cst, x);
+        return this.func(x);
     }
 
     private tokenize(text: string) {
